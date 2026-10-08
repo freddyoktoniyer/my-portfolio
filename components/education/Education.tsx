@@ -18,9 +18,9 @@ export function Education() {
           <Reveal className="lg:col-span-4">
             <SectionHeading
               id="education-title"
-              eyebrow="05 / Education"
+              eyebrow="08 / Education"
               title="Education"
-              description="Information systems and informatics, studied alongside professional work."
+              description="Information Systems — where business and technology meet — studied alongside professional work."
             />
           </Reveal>
           <Reveal delay={0.1} className="lg:col-span-8 lg:pt-14">

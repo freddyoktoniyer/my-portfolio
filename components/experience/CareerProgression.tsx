@@ -14,9 +14,9 @@ export function CareerProgression({ stages, className }: CareerProgressionProps)
     <div className={className}>
       <Reveal className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
         <div>
-          <p className="label-mono text-fg-muted">03.1 / Progression</p>
+          <p className="label-mono text-fg-muted">07.1 / Progression</p>
           <h3 className="mt-4 text-2xl font-semibold tracking-display text-fg sm:text-3xl">
-            From interface to system.
+            From interface to business process.
           </h3>
         </div>
         <p className="max-w-sm text-sm leading-relaxed text-fg-muted md:text-right">

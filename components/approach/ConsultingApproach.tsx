@@ -3,38 +3,38 @@ import { Section } from "@/components/layout/Section";
 import { Divider } from "@/components/ui/Divider";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { problemSolvingSteps } from "@/data/engineering";
+import { consultingApproach } from "@/data/approach";
 import { cn, formatIndex } from "@/lib/utils";
 
-export function ProblemSolving() {
-  const lastIndex = problemSolvingSteps.length - 1;
+export function ConsultingApproach() {
+  const lastIndex = consultingApproach.length - 1;
 
   return (
     <Section
-      id="problem-solving"
-      navSection="engineering"
-      labelledBy="problem-solving-title"
+      id="consulting-approach"
+      navSection="approach"
+      labelledBy="consulting-approach-title"
       className="pt-0 sm:pt-0"
     >
       <Container>
         <Divider className="mb-20 sm:mb-28" />
         <Reveal>
           <SectionHeading
-            id="problem-solving-title"
-            eyebrow="04.3 / Problem solving"
+            id="consulting-approach-title"
+            eyebrow="04.1 / Consulting approach"
             title={
               <>
-                From problem{" "}
+                How I solve{" "}
                 <br />
-                to production.
+                problems.
               </>
             }
-            description="The path a change takes — from understanding the requirement to improving it once it runs in production."
+            description="Seven steps from the first conversation to a validated solution — with alternatives weighed before anything is built."
           />
         </Reveal>
 
         <ol className="mt-14 grid xl:grid-cols-7">
-          {problemSolvingSteps.map((step, index) => (
+          {consultingApproach.map((step, index) => (
             <Reveal
               as="li"
               key={step.title}

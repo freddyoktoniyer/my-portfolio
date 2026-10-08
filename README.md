@@ -1,8 +1,11 @@
 # Freddy Oktoniyer S — Portfolio
 
-Personal portfolio of **Freddy Oktoniyer S**, Backend / Full Stack Software Engineer.
-A single-page, statically prerendered Next.js site built from `PORTFOLIO_SPEC.md`,
-with all content sourced from the CV in `public/resume/`.
+Personal portfolio of **Freddy Oktoniyer S**, positioned for System Analyst, Technical Business
+Analyst, and IT Consultant roles: a Software Engineer with an Information Systems background who
+works across business, systems, and technology. A single-page, statically prerendered Next.js
+site. It was originally built from `PORTFOLIO_SPEC.md` and repositioned per
+`PORTFOLIO_SYSTEM_ANALYST_TECHNICAL_BA_IT_CONSULTANT.md`. Content comes from the CV in
+`public/resume/` plus project details confirmed by Freddy.
 
 ## Stack
 
@@ -34,18 +37,25 @@ npm run start      # serve the production build
 
 All copy lives in `data/` and is typed by `types/portfolio.ts`. Components only render it.
 
-| File                    | Content                                                              |
-| ----------------------- | -------------------------------------------------------------------- |
-| `data/profile.ts`       | Name, title, contact details, about and contact copy                 |
-| `data/experience.ts`    | Roles, responsibilities, career progression                          |
-| `data/projects.ts`      | Selected Work categories and their case-study details                |
-| `data/skills.ts`        | Engineering capability groups                                        |
-| `data/engineering.ts`   | Hero layers, principles, VIVERE architecture, system layers, process |
-| `data/education.ts`     | Education                                                            |
-| `data/navigation.ts`    | Navigation items and contact links                                   |
+| File                    | Content                                                                         |
+| ----------------------- | ------------------------------------------------------------------------------- |
+| `data/profile.ts`       | Name, target roles, hero copy, contact details, about and contact copy          |
+| `data/approach.ts`      | Hero stages, Business × System × Technology, differentiator, capabilities, process |
+| `data/case-studies.ts`  | Case studies (block-based, following the analysis path) and other systems       |
+| `data/experience.ts`    | Roles, responsibilities, career progression                                     |
+| `data/skills.ts`        | Technical foundation groups                                                     |
+| `data/engineering.ts`   | VIVERE architecture diagram and system layers                                   |
+| `data/education.ts`     | Education                                                                       |
+| `data/navigation.ts`    | Navigation items and contact links                                              |
 
-Content rules followed throughout: no invented metrics, clients, project names, or results.
-Where the CV documents no measurable result, case studies show a "Focus" statement instead.
+Content rules followed throughout:
+
+- Job titles stay exactly as held. Target roles appear only as positioning (hero, metadata).
+  The JSON-LD `jobTitle` is the actual current role.
+- No invented metrics, clients, or outcomes. A case study includes only the sections backed by
+  real detail. A "Result" block appears only where the CV documents one. Work that has not
+  reached production carries a `status` (e.g. "Concept").
+- Confidential details (client names, pricing, internal URLs) are never shown.
 
 The CV is served from `public/resume/Freddy-Oktoniyer-S-CV.pdf`. Replace that file to update it.
 
@@ -53,7 +63,8 @@ The CV is served from `public/resume/Freddy-Oktoniyer-S-CV.pdf`. Replace that fi
 
 ```text
 app/            layout, page, globals.css, metadata routes (OG image, icon, robots, sitemap)
-components/     layout/, hero/, about/, work/, experience/, engineering/, education/, contact/, ui/
+components/     layout/, hero/, about/, strengths/, capabilities/, approach/, case-studies/,
+                engineering/, experience/, education/, contact/, ui/
 data/           portfolio content
 lib/            utilities, constants, structured data, cached current year
 types/          domain types
@@ -61,7 +72,8 @@ types/          domain types
 
 Server Components are the default. Client Components are limited to: navigation (scroll spy and
 mobile menu), motion wrappers (`Reveal`, `MotionProvider`), the hero and architecture diagrams,
-the system-layer explorer, the project dialog, and the copy-to-clipboard button.
+the layer/step explorer (`SystemLayers`, used for both "How I work" and the architecture
+layers), the case-study dialog, and the copy-to-clipboard button.
 
 ## Deployment
 

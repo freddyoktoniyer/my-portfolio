@@ -13,7 +13,7 @@ export async function Footer() {
           <p className="text-sm text-fg">
             © {year} {profile.name}
           </p>
-          <p className="text-sm text-fg-muted">{profile.title}</p>
+          <p className="text-sm text-fg-muted">{profile.tagline}</p>
         </div>
         <div className="label-mono leading-relaxed text-fg-muted md:text-right">
           <p>Designed & engineered with</p>

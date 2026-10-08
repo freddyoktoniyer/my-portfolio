@@ -5,24 +5,26 @@ import { formatIndex } from "@/lib/utils";
 import type { LayerSummary } from "@/types/portfolio";
 
 interface HeroSystemVisualProps {
-  layers: LayerSummary[];
+  stages: LayerSummary[];
+  title: string;
+  caption: string;
 }
 
-export function HeroSystemVisual({ layers }: HeroSystemVisualProps) {
+export function HeroSystemVisual({ stages, title, caption }: HeroSystemVisualProps) {
   const reduceMotion = useReducedMotion() ?? false;
 
   return (
     <figure className="relative rounded-2xl border border-line bg-surface/80 shadow-2xl shadow-black/40 backdrop-blur-sm">
-      <div className="flex items-center justify-between border-b border-line px-5 py-3.5">
-        <span className="label-mono text-fg-muted">System / Layers</span>
-        <span className="label-mono flex items-center gap-2 text-fg-muted">
+      <div className="flex items-center justify-between gap-4 border-b border-line px-5 py-3.5">
+        <span className="label-mono text-fg-muted">{title}</span>
+        <span className="label-mono flex shrink-0 items-center gap-2 text-fg-muted">
           <span aria-hidden="true" className="size-1.5 rounded-full bg-accent" />
-          {String(layers.length).padStart(2, "0")} layers
+          {String(stages.length).padStart(2, "0")} stages
         </span>
       </div>
 
       <ol className="p-4 sm:p-6">
-        {layers.map((layer, index) => (
+        {stages.map((layer, index) => (
           <li key={layer.id}>
             {index > 0 ? (
               <Connector index={index} reduceMotion={reduceMotion} />
@@ -41,7 +43,7 @@ export function HeroSystemVisual({ layers }: HeroSystemVisualProps) {
       </ol>
 
       <figcaption className="border-t border-line px-5 py-3.5 text-sm text-fg-muted">
-        From the mobile client to the enterprise system — one request path.
+        {caption}
       </figcaption>
     </figure>
   );

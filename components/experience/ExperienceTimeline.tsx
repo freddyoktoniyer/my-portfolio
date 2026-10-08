@@ -18,9 +18,9 @@ export function ExperienceTimeline() {
         <Reveal>
           <SectionHeading
             id="experience-title"
-            eyebrow="03 / Experience"
-            title="From interfaces to integrations."
-            description="Six roles since 2021 — from frontend delivery to backend services, APIs, and SAP integration."
+            eyebrow="07 / Experience"
+            title="Engineering roles, with analysis built in."
+            description="Six roles since 2021. Job titles are exactly as held — the responsibilities show where requirement, process, and impact analysis were part of the work."
           />
         </Reveal>
 

@@ -2,76 +2,94 @@ import type { Skill, SkillGroup, SupplementarySkills } from "@/types/portfolio";
 
 const toSkills = (names: string[]): Skill[] => names.map((name) => ({ name }));
 
+/** Technical foundation, grouped by where each technology sits in the system. */
 export const skillGroups: SkillGroup[] = [
   {
-    id: "backend",
-    title: "Backend Engineering",
-    description:
-      "Services and APIs that carry business rules, validation, and error handling.",
-    skills: toSkills([
-      "Golang",
-      "Laravel",
-      "PHP",
-      "REST API",
-      "Business Logic",
-      "Validation",
-      "Error Handling",
-    ]),
-  },
-  {
     id: "mobile",
-    title: "Mobile Engineering",
+    title: "Mobile",
     description:
-      "Native and cross-platform mobile development, and the APIs mobile apps depend on.",
+      "Native Android and iOS, plus cross-platform with Kotlin Multiplatform and Flutter.",
     skills: toSkills([
-      "Kotlin",
       "Android",
-      "Swift",
-      "iOS",
+      "Kotlin",
       "Compose",
+      "Kotlin Multiplatform",
+      "iOS",
+      "Swift",
       "Flutter",
       "Dart",
     ]),
   },
   {
-    id: "integration",
-    title: "System Integration",
-    description:
-      "Data exchange between applications, backend services, and SAP.",
+    id: "backend",
+    title: "Backend",
+    description: "Services and APIs that carry business rules, validation, and error handling.",
+    skills: toSkills(["Go", "Laravel", "PHP", "CodeIgniter", "REST API"]),
+  },
+  {
+    id: "web",
+    title: "Web",
+    description: "Web applications and internal business tools.",
     skills: toSkills([
-      "REST",
+      "JavaScript",
+      "TypeScript",
+      "Vue.js",
+      "Angular",
+      "Next.js",
+      "jQuery",
+      "HTML5 & CSS",
+    ]),
+  },
+  {
+    id: "database",
+    title: "Database",
+    description:
+      "Relational data models behind application features, processing, and troubleshooting.",
+    skills: toSkills(["PostgreSQL", "MySQL", "Oracle", "SQL Server", "SQL"]),
+  },
+  {
+    id: "integration",
+    title: "Integration",
+    description:
+      "Data exchange and access control between applications, internal services, and enterprise systems.",
+    skills: toSkills([
+      "REST API",
       "SAP",
       "OData",
-      "API Integration",
-      "Data Exchange",
+      "Authentication",
+      "JWT",
+      "OAuth",
+      "Internal Services",
+      "External Systems",
     ]),
   },
   {
-    id: "data",
-    title: "Data",
-    description:
-      "Relational databases behind application features, processing, and troubleshooting.",
+    id: "engineering",
+    title: "Engineering",
+    description: "Delivery practices from code to release.",
     skills: toSkills([
-      "MySQL",
-      "PostgreSQL",
-      "SQL Server",
-      "SQL Queries",
-      "Data Processing",
-    ]),
-  },
-  {
-    id: "quality",
-    title: "Quality & Reliability",
-    description:
-      "Testing, root cause analysis, and production support across the SDLC.",
-    skills: toSkills([
+      "Git",
+      "CI/CD",
       "Testing",
-      "SIT",
-      "UAT",
-      "Troubleshooting",
+      "SIT / UAT",
+      "Debugging",
       "Root Cause Analysis",
-      "Production Support",
-      "Performance",
+      "Performance Optimization",
+      "Deployment",
+    ]),
+  },
+  {
+    id: "infrastructure",
+    title: "Infrastructure",
+    description: "The environment applications are deployed to and run in.",
+    skills: toSkills([
+      "Server",
+      "Cloud",
+      "Networking",
+      "Domain",
+      "Storage",
+      "Monitoring",
+      "Containers",
     ]),
   },
 ];
@@ -79,18 +97,6 @@ export const skillGroups: SkillGroup[] = [
 export const supplementarySkills: SupplementarySkills = {
   title: "Also in the toolkit",
   groups: [
-    {
-      label: "Web",
-      skills: toSkills([
-        "Vue.js",
-        "Angular",
-        "CodeIgniter",
-        "JavaScript",
-        "jQuery",
-        "HTML5",
-        "CSS",
-      ]),
-    },
     {
       label: "Languages",
       skills: toSkills(["Java", "Python"]),
@@ -104,8 +110,8 @@ export const supplementarySkills: SupplementarySkills = {
       skills: toSkills([
         "Software Architecture",
         "UI/UX",
-        "Crash Fix",
         "Manual Testing",
+        "Crash Fix",
         "Project Management",
         "Compliance Management",
       ]),

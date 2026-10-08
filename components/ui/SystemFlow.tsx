@@ -2,14 +2,16 @@ import { cn } from "@/lib/utils";
 
 interface SystemFlowProps {
   steps: readonly string[];
+  /** Accessible name of the flow, read before its steps. */
+  label?: string;
   className?: string;
 }
 
 /** A compact left-to-right flow diagram, e.g. "Android / iOS → REST API → …". */
-export function SystemFlow({ steps, className }: SystemFlowProps) {
+export function SystemFlow({ steps, label = "Flow", className }: SystemFlowProps) {
   return (
     <ol
-      aria-label={`System flow: ${steps.join(", then ")}`}
+      aria-label={`${label}: ${steps.join(", then ")}`}
       className={cn("flex flex-wrap items-center gap-y-2", className)}
     >
       {steps.map((step, index) => (

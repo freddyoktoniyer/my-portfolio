@@ -6,17 +6,23 @@ export interface LabeledValue {
 export interface Profile {
   name: string;
   shortName: string;
+  /** Target roles, used as the hero subtitle and in metadata. */
   title: string;
-  /** One-line positioning used in the hero. */
-  headline: string;
-  /** Longer positioning used for metadata and the about section. */
+  /** Hero heading, one entry per line. */
+  headline: readonly string[];
+  /** One-line personal brand statement. */
+  tagline: string;
+  /** Lead positioning sentence, used in the hero and the Open Graph image. */
   positioning: string;
+  /** Supporting copy shown under the positioning sentence in the hero. */
+  summary: string;
+  /** Academic background, shown in the hero facts. */
+  background: string;
   location: string;
   email: string;
   linkedin: string;
   experience: string;
-  /** Short summary of the engineering focus, shown under the hero. */
-  focus: string;
+  /** Actual current job title — kept separate from the target roles. */
   current: {
     role: string;
     company: string;
@@ -29,7 +35,7 @@ export interface Profile {
 }
 
 export interface NavigationItem {
-  /** Matches the `data-nav-section` attribute of the target section. */
+  /** Matches the `data-nav-section` attribute of the target sections. */
   id: string;
   label: string;
   href: `/#${string}`;
@@ -76,6 +82,7 @@ export interface Experience {
   id: string;
   company: string;
   companyUrl?: string;
+  /** Job title exactly as held — never renamed to match a target role. */
   role: string;
   /** Exact period as written in the CV, e.g. "09/2024 — Present". */
   period: string;
@@ -86,7 +93,6 @@ export interface Experience {
   description: string;
   highlights: string[];
   technologies: string[];
-  focus: string[];
   capabilities?: CapabilityRow[];
   pillars?: string[];
   metric?: ExperienceMetric;
@@ -119,28 +125,77 @@ export interface SupplementarySkills {
   }[];
 }
 
-export interface ProjectContext {
+/** One of the three layers in the Business × System × Technology section. */
+export interface StrengthLayer {
+  id: string;
+  label: string;
+  /** The question this layer answers about a requirement. */
+  question: string;
+  items: string[];
+}
+
+export interface Comparison {
+  label: string;
+  description: string;
+  highlight?: boolean;
+}
+
+export interface Capability {
+  title: string;
+  description: string;
+}
+
+export interface CapabilityGroup {
+  id: string;
+  title: string;
+  description: string;
+  items: Capability[];
+}
+
+export interface CaseStudyContext {
   company: string;
   role: string;
   period: string;
 }
 
-export interface Project {
+/**
+ * A section of a case study. Case studies follow the analysis path
+ * (problem → process → requirements → design → implementation), and only
+ * sections backed by real detail are included — none are padded out.
+ */
+export type CaseStudyBlock =
+  | { kind: "text"; title: string; paragraphs: string[] }
+  | {
+      kind: "list";
+      title: string;
+      intro?: string;
+      items: string[];
+      /** Short items rendered inline instead of as a bulleted list. */
+      inline?: boolean;
+    }
+  /** Ordered process, drawn as a vertical flow. */
+  | { kind: "process"; title: string; steps: string[]; note?: string }
+  /** Layers or stages, drawn as a compact horizontal flow. */
+  | { kind: "chain"; title: string; steps: string[]; note?: string }
+  | { kind: "insight"; title: string; text: string };
+
+export interface CaseStudy {
   slug: string;
   category: string;
   title: string;
+  /** The business challenge in one or two sentences, shown on the card. */
   summary: string;
-  overview: string;
+  role: string[];
+  context: CaseStudyContext[];
+  /** Set when the work has not reached production. */
+  status?: {
+    label: string;
+    note: string;
+  };
+  /** Short flow drawn on the card. */
+  cardFlow: string[];
+  blocks: CaseStudyBlock[];
   technologies: string[];
-  focus: string[];
-  /** Ordered system flow, rendered as a small diagram. */
-  flow: string[];
-  /** CV-backed description of how the work is approached. */
-  approach: string[];
-  context: ProjectContext[];
-  examples?: DocumentedSystem[];
-  /** Used in place of a "Result" section — no measurable results are claimed. */
-  outcomeFocus: string;
 }
 
 export interface Education {
@@ -165,11 +220,6 @@ export type LayerSummary = Pick<ArchitectureLayer, "id" | "label" | "detail">;
 export interface ArchitectureEdge {
   from: ArchitectureNodeId;
   to: ArchitectureNodeId;
-}
-
-export interface Principle {
-  title: string;
-  description: string;
 }
 
 export interface ProcessStep {

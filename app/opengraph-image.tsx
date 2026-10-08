@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-import { heroLayers } from "@/data/engineering";
+import { heroStages } from "@/data/approach";
 import { profile } from "@/data/profile";
 
 export const alt = `${profile.name} — ${profile.title}`;
@@ -30,14 +30,29 @@ export default function OpenGraphImage() {
           color: colors.fg,
         }}
       >
-        <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+            maxWidth: 700,
+          }}
+        >
           <div style={{ display: "flex", alignItems: "center", gap: 14, color: colors.muted, fontSize: 22 }}>
             <div style={{ width: 12, height: 12, borderRadius: 3, backgroundColor: colors.accent }} />
             {profile.location}
           </div>
           <div style={{ display: "flex", flexDirection: "column" }}>
             <div style={{ fontSize: 76, fontWeight: 600, letterSpacing: "-0.04em" }}>{profile.name}</div>
-            <div style={{ marginTop: 12, fontSize: 40, color: colors.secondary, letterSpacing: "-0.03em" }}>
+            <div
+              style={{
+                marginTop: 12,
+                fontSize: 34,
+                lineHeight: 1.25,
+                color: colors.secondary,
+                letterSpacing: "-0.03em",
+              }}
+            >
               {profile.title}
             </div>
           </div>
@@ -55,7 +70,7 @@ export default function OpenGraphImage() {
             width: 300,
           }}
         >
-          {heroLayers.map((layer, index) => (
+          {heroStages.map((layer, index) => (
             <div
               key={layer.id}
               style={{

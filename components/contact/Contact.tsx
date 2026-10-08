@@ -26,7 +26,7 @@ export function Contact() {
         <Reveal>
           <SectionHeading
             id="contact-title"
-            eyebrow="06 / Contact"
+            eyebrow="09 / Contact"
             size="display"
             title={contact.titleLines.map((line, index) => (
               <span key={line} className="block">

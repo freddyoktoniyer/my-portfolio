@@ -1,46 +1,4 @@
-import type {
-  ArchitectureLayer,
-  ArchitectureModel,
-  LayerSummary,
-  Principle,
-  ProcessStep,
-} from "@/types/portfolio";
-
-/** Layers shown in the hero system visual. */
-export const heroLayers: LayerSummary[] = [
-  { id: "mobile", label: "Mobile", detail: "Android / iOS" },
-  { id: "api", label: "API", detail: "REST" },
-  { id: "backend", label: "Backend", detail: "Golang / Laravel" },
-  { id: "data", label: "Data", detail: "PostgreSQL / MySQL / SQL Server" },
-  { id: "enterprise", label: "Enterprise", detail: "SAP / OData" },
-];
-
-export const philosophy = {
-  title: "How I work",
-  loop: ["Understand", "Design", "Build", "Validate", "Improve"],
-  principles: [
-    {
-      title: "Understand",
-      description:
-        "Understand business requirements and system context before implementation.",
-    },
-    {
-      title: "Design",
-      description:
-        "Translate requirements into maintainable technical solutions.",
-    },
-    {
-      title: "Build",
-      description:
-        "Develop reliable applications, APIs, integrations, and services.",
-    },
-    {
-      title: "Improve",
-      description:
-        "Investigate root causes, improve reliability, and continuously refine the system.",
-    },
-  ] satisfies Principle[],
-};
+import type { ArchitectureLayer, ArchitectureModel } from "@/types/portfolio";
 
 /** Request path of the backend work at VIVERE GROUP, as described in the CV. */
 export const vivereArchitecture: ArchitectureModel = {
@@ -52,7 +10,7 @@ export const vivereArchitecture: ArchitectureModel = {
       label: "Android · iOS",
       detail: "Mobile applications",
       description:
-        "Android and iOS applications consuming the RESTful APIs, with contracts agreed together with mobile developers.",
+        "Native Android (Kotlin) and iOS (Swift) applications consuming the RESTful APIs, with contracts agreed together with mobile developers.",
     },
     api: {
       id: "api",
@@ -94,20 +52,20 @@ export const vivereArchitecture: ArchitectureModel = {
 
 export const systemLayers: ArchitectureLayer[] = [
   {
-    id: "user",
-    label: "User",
-    detail: "Requirements",
+    id: "business",
+    label: "Business",
+    detail: "Process & requirements",
     description:
       "Where requirements originate. Business processes and the people who run them define what the system must do — and confirm it during UAT.",
-    technologies: ["Requirements Analysis", "UAT"],
+    technologies: ["Requirement Analysis", "AS-IS / TO-BE", "UAT"],
   },
   {
-    id: "mobile",
-    label: "Mobile Application",
-    detail: "Android / iOS",
+    id: "client",
+    label: "Mobile & Web",
+    detail: "Android / iOS / Web",
     description:
       "Applications that carry user workflows and consume backend services through agreed API contracts.",
-    technologies: ["Kotlin", "Swift", "Flutter"],
+    technologies: ["Kotlin", "Swift", "Kotlin Multiplatform", "Flutter", "Vue.js", "Next.js"],
   },
   {
     id: "api",
@@ -115,7 +73,7 @@ export const systemLayers: ArchitectureLayer[] = [
     detail: "REST",
     description:
       "Defines the contract between applications and backend services: request/response structures, authentication, and validation.",
-    technologies: ["REST", "Authentication", "Validation"],
+    technologies: ["REST", "JWT", "OAuth", "Validation"],
   },
   {
     id: "backend",
@@ -131,7 +89,7 @@ export const systemLayers: ArchitectureLayer[] = [
     detail: "Rules & workflows",
     description:
       "Translates functional requirements into server-side rules and service workflows, with error handling that protects data integrity.",
-    technologies: ["Service Workflows", "Error Handling"],
+    technologies: ["Business Rules", "Service Workflows", "Error Handling"],
   },
   {
     id: "database",
@@ -139,7 +97,7 @@ export const systemLayers: ArchitectureLayer[] = [
     detail: "Relational",
     description:
       "Relational data accessed through SQL to support application features, data processing, and troubleshooting.",
-    technologies: ["MySQL", "PostgreSQL", "SQL Server"],
+    technologies: ["PostgreSQL", "MySQL", "Oracle", "SQL Server"],
   },
   {
     id: "enterprise",
@@ -148,37 +106,5 @@ export const systemLayers: ArchitectureLayer[] = [
     description:
       "Integrates application services with enterprise systems such as SAP, through OData and REST APIs.",
     technologies: ["SAP", "OData"],
-  },
-];
-
-export const problemSolvingSteps: ProcessStep[] = [
-  {
-    title: "Understand",
-    description: "Requirements and business context.",
-  },
-  {
-    title: "Analyze",
-    description:
-      "Investigate application, API, data, and integration behavior.",
-  },
-  {
-    title: "Design",
-    description: "Define the technical approach.",
-  },
-  {
-    title: "Build",
-    description: "Implement the solution.",
-  },
-  {
-    title: "Validate",
-    description: "Testing, SIT, UAT, and debugging.",
-  },
-  {
-    title: "Deploy",
-    description: "Release and production support.",
-  },
-  {
-    title: "Improve",
-    description: "Root cause analysis, reliability, and optimization.",
   },
 ];

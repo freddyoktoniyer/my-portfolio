@@ -9,9 +9,9 @@ import { systemLayers } from "@/data/engineering";
 export function SystemThinking() {
   return (
     <Section
-      id="system-thinking"
-      navSection="engineering"
-      labelledBy="system-thinking-title"
+      id="architecture"
+      navSection="stack"
+      labelledBy="architecture-title"
       className="pt-0 sm:pt-0"
     >
       <Container>
@@ -19,8 +19,8 @@ export function SystemThinking() {
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-10">
           <Reveal className="lg:col-span-5">
             <SectionHeading
-              id="system-thinking-title"
-              eyebrow="04.2 / System thinking"
+              id="architecture-title"
+              eyebrow="06.1 / Architecture"
               title={
                 <>
                   One system.{" "}
@@ -32,7 +32,7 @@ export function SystemThinking() {
             />
           </Reveal>
           <Reveal delay={0.1} className="lg:col-span-7">
-            <SystemLayers layers={systemLayers} initialLayerId="api" />
+            <SystemLayers layers={systemLayers} initialLayerId="business" />
           </Reveal>
         </div>
       </Container>

@@ -5,28 +5,23 @@ import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { skillGroups, supplementarySkills } from "@/data/skills";
 
-export function EngineeringCapabilities() {
+export function TechnicalFoundation() {
   return (
-    <Section
-      id="engineering"
-      navSection="engineering"
-      labelledBy="engineering-title"
-      className="border-t border-line"
-    >
+    <Section id="stack" navSection="stack" labelledBy="stack-title" className="border-t border-line">
       <Container>
         <Reveal>
           <SectionHeading
-            id="engineering-title"
-            eyebrow="04 / Engineering"
-            title="Capabilities, organized by layer."
-            description="Grouped by where each capability sits in the system — not ranked, and not rated."
+            id="stack-title"
+            eyebrow="06 / Technical foundation"
+            title="The engineering behind the analysis."
+            description="Hands-on across mobile, web, backend, data, integration, and infrastructure — so every proposed solution is checked against how it will actually be built."
           />
         </Reveal>
 
-        <ul className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-2 xl:grid-cols-3">
+        <ul className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-2 xl:grid-cols-4">
           {skillGroups.map((group, index) => (
             <li key={group.id} className="bg-background">
-              <Reveal delay={(index % 3) * 0.06} className="h-full">
+              <Reveal delay={(index % 4) * 0.06} className="h-full">
                 <TechnologyGroup group={group} index={index} />
               </Reveal>
             </li>

@@ -1,6 +1,29 @@
 import { vivereArchitecture } from "@/data/engineering";
-import type { CareerStage, Experience } from "@/types/portfolio";
+import type { CareerStage, DocumentedSystem, Experience } from "@/types/portfolio";
 
+/** Business applications at PT. Garuda Yamato Steel, as documented in the CV. */
+export const garudaYamatoSystems: DocumentedSystem[] = [
+  {
+    name: "Unmanned weighbridge management system",
+    stack: ["Laravel", "Vue.js"],
+    company: "PT. Garuda Yamato Steel",
+  },
+  {
+    name: "Vendor Management application",
+    stack: ["CodeIgniter 3"],
+    company: "PT. Garuda Yamato Steel",
+  },
+  {
+    name: "Customer pre-registration application",
+    stack: ["CodeIgniter 3"],
+    company: "PT. Garuda Yamato Steel",
+  },
+];
+
+/**
+ * Job titles are exactly as held. The highlights surface the analysis and
+ * solution-design work that was part of each role.
+ */
 export const experiences: Experience[] = [
   {
     id: "vivere",
@@ -12,37 +35,50 @@ export const experiences: Experience[] = [
     current: true,
     tier: "primary",
     description:
-      "Develop and maintain backend services and RESTful APIs supporting mobile applications and enterprise business processes.",
+      "Analyze business requirements and deliver the systems behind them — across Android, iOS, web, backend services, APIs, databases, and SAP integration.",
     capabilities: [
-      { area: "Backend", items: ["Golang", "Laravel"] },
-      { area: "API", items: ["REST", "Validation", "Authentication"] },
-      { area: "Integration", items: ["SAP", "OData"] },
-      { area: "Mobile", items: ["Android", "iOS"] },
       {
-        area: "Engineering",
-        items: ["Testing", "Troubleshooting", "Production Support"],
+        area: "Analysis",
+        items: ["Requirements", "Business process", "Impact analysis"],
+      },
+      {
+        area: "Solution design",
+        items: ["System flow", "API contracts", "Data structures", "Validation rules"],
+      },
+      { area: "Mobile & Web", items: ["Android (Kotlin)", "iOS (Swift)", "Web"] },
+      {
+        area: "Backend & API",
+        items: ["Golang", "Laravel", "REST", "Authentication"],
+      },
+      { area: "Integration", items: ["SAP", "OData"] },
+      {
+        area: "Delivery",
+        items: ["SIT / UAT", "Release", "Production support"],
       },
     ],
     highlights: [
-      "Develop and maintain Golang backend services for mobile applications and internal business processes — application logic, service flows, validation, and data processing.",
-      "Design and maintain RESTful APIs consumed by Android and iOS applications, covering authentication, request validation, business logic, response handling, and error handling.",
-      "Build and integrate backend services with SAP through OData APIs, including data exchange, request/response mapping, validation, and integration flow handling.",
+      "Collaborate with Business Analysts, Product teams, business users, UI/UX teams, vendors, and engineering teams to clarify requirements and define system behavior.",
+      "Analyze business processes and system requirements, and translate them into system flows, API specifications, data structures, validation rules, and technical solutions.",
+      "Assess the impact of enhancements across applications, APIs, databases, and integrations before implementation, to minimize regressions and unintended disruption to business processes.",
+      "Design and implement solutions across Android (Kotlin), iOS (Swift), web, backend, and database layers.",
+      "Design and maintain RESTful APIs in Golang consumed by Android and iOS applications — authentication, request validation, business logic, response handling, and error handling.",
+      "Integrate backend services with SAP through OData APIs, including data exchange, request/response mapping, validation, and integration flow handling.",
       "Define API contracts, request/response structures, and integration requirements with mobile and frontend developers.",
+      "Investigate production and functional issues by analyzing business flow and system behavior before isolating technical defects — including issues raised by testers and business users during SIT and UAT.",
       "Work across Laravel and Golang codebases to deliver new features, maintain existing services, and improve performance, reliability, and service stability.",
-      "Implement validation and error handling that maintain data integrity and consistency across application and integration flows.",
-      "Work with relational databases and SQL queries to support features, data processing, and troubleshooting.",
-      "Investigate backend, API, and integration issues through root cause analysis — including issues reported by testers and business users during SIT and UAT.",
-      "Translate business processes and requirements into backend services, API specifications, and system workflows.",
       "Contribute to solution design, documentation, release preparation, deployment, and post-production monitoring.",
     ],
-    technologies: ["Golang", "Laravel", "REST API", "SAP", "OData", "SQL"],
-    focus: [
-      "Backend",
+    technologies: [
+      "Golang",
+      "Laravel",
+      "Kotlin",
+      "Swift",
       "REST API",
-      "Mobile integration",
       "SAP",
-      "Enterprise systems",
-      "Production support",
+      "OData",
+      "Oracle",
+      "PostgreSQL",
+      "MySQL",
     ],
     architecture: vivereArchitecture,
   },
@@ -56,8 +92,9 @@ export const experiences: Experience[] = [
     current: false,
     tier: "secondary",
     description:
-      "Developed, integrated, and supported business applications — from requirements and documentation through SAP integration and production support.",
+      "Defined requirements, documented systems, and developed, integrated, and supported business applications — from BRD through SAP integration, SIT/UAT, and production support.",
     pillars: [
+      "Requirements & Documentation",
       "Application Development",
       "Enterprise Integration",
       "Application Support",
@@ -66,30 +103,17 @@ export const experiences: Experience[] = [
       value: "34",
       label: "UiPath RPA processes monitored and enhanced",
     },
-    systems: [
-      {
-        name: "Unmanned weighbridge management system",
-        stack: ["Laravel", "Vue.js"],
-        company: "PT. Garuda Yamato Steel",
-      },
-      {
-        name: "Vendor Management application",
-        stack: ["CodeIgniter 3"],
-        company: "PT. Garuda Yamato Steel",
-      },
-      {
-        name: "Customer pre-registration application",
-        stack: ["CodeIgniter 3"],
-        company: "PT. Garuda Yamato Steel",
-      },
-    ],
+    systems: garudaYamatoSystems,
     highlights: [
+      "Defined software requirements from business needs and translated them into technical specifications.",
+      "Created and maintained Business Requirements Documents (BRD), system specifications, technical documentation, test scenarios, and test reports.",
+      "Worked closely with operations, business users, and development teams to investigate issues and streamline debugging.",
+      "Developed and maintained business applications using Laravel, CodeIgniter 3, Vue.js, Angular, JavaScript, Go, Flutter, and SQL Server.",
       "Developed and maintained REST API integrations supporting data exchange between applications and enterprise systems.",
       "Integrated application data with SAP systems through APIs, improving data synchronization and operational integration.",
-      "Performed application support, production troubleshooting, and data correction to maintain system availability, data accuracy, and integrity.",
-      "Identified, documented, and analyzed front-end and back-end production bugs to support root cause analysis.",
-      "Defined software requirements from business needs and maintained BRDs, system specifications, technical documentation, test scenarios, and test reports.",
       "Assisted teams during System Integration Testing (SIT) and User Acceptance Testing (UAT).",
+      "Performed application support, production troubleshooting, and data correction to maintain system availability, data accuracy, and integrity.",
+      "Identified, documented, and analyzed front-end and back-end production bugs to support root cause analysis and continuous improvement.",
     ],
     technologies: [
       "Laravel",
@@ -103,14 +127,6 @@ export const experiences: Experience[] = [
       "SAP",
       "UiPath",
     ],
-    focus: [
-      "Business applications",
-      "REST API",
-      "SAP integration",
-      "Production support",
-      "SIT / UAT",
-      "RPA",
-    ],
   },
   {
     id: "kost-profesional",
@@ -121,14 +137,13 @@ export const experiences: Experience[] = [
     current: false,
     tier: "compact",
     description:
-      "Frontend and backend application development with Laravel 9 across the software development lifecycle.",
+      "Requirements through release for Laravel 9 applications, across the full software development lifecycle.",
     highlights: [
-      "Built and maintained frontend and backend applications using Laravel 9.",
-      "Translated technical and business requirements into application features, from design and testing to documentation and release.",
-      "Investigated production issues and recurring bugs, recommending improvements to minimize user impact and downtime.",
+      "Gathered and translated technical and business requirements into application features.",
+      "Built and maintained frontend and backend applications using Laravel 9, from design and testing to documentation and release.",
+      "Investigated production issues and analyzed recurring bugs, recommending improvements to minimize user impact and downtime.",
     ],
     technologies: ["Laravel 9"],
-    focus: ["Full stack", "Production support"],
   },
   {
     id: "pdsi-kominfo",
@@ -139,14 +154,13 @@ export const experiences: Experience[] = [
     current: false,
     tier: "compact",
     description:
-      "Designed and developed a web-based activity scheduling application.",
+      "Analyzed requirements for, designed, and developed a web-based activity scheduling application.",
     highlights: [
+      "Analyzed system requirements and recommended software improvements.",
       "Designed and developed a web-based activity scheduling application using CodeIgniter 3 and MySQL.",
-      "Analyzed system requirements, recommended software improvements, and produced technical documentation.",
-      "Developed, tested, debugged, and maintained application features.",
+      "Developed, tested, debugged, and maintained features, and produced technical documentation.",
     ],
     technologies: ["CodeIgniter 3", "MySQL"],
-    focus: ["Full stack", "Requirements analysis"],
   },
   {
     id: "pt-pin",
@@ -159,12 +173,11 @@ export const experiences: Experience[] = [
     description:
       "Designed and developed an e-commerce application for Smart Farming.",
     highlights: [
+      "Collaborated with system analysts to translate client requirements into application functionality.",
       "Designed and developed an e-commerce application for Smart Farming using CodeIgniter 3 and MySQL.",
-      "Worked with system analysts to translate client requirements into application functionality.",
-      "Performed application testing, troubleshooting, and debugging, and produced technical documentation.",
+      "Performed testing, troubleshooting, and debugging; produced technical documentation and monitored application-supported business processes.",
     ],
     technologies: ["CodeIgniter 3", "MySQL"],
-    focus: ["Full stack", "Testing"],
   },
   {
     id: "umkm-bogor",
@@ -176,12 +189,11 @@ export const experiences: Experience[] = [
     tier: "compact",
     description: "Developed a responsive landing page application.",
     highlights: [
+      "Collaborated with system analysts to translate requirements into frontend implementation.",
       "Developed a responsive landing page application using HTML5 and CSS.",
-      "Worked with system analysts to translate requirements into frontend implementation.",
       "Ensured usability, visual consistency, and reliable browser behavior.",
     ],
     technologies: ["HTML5", "CSS"],
-    focus: ["Frontend"],
   },
 ];
 
@@ -192,17 +204,17 @@ export const careerStages: CareerStage[] = [
   {
     label: "Frontend",
     years: "2021",
-    note: "Responsive interfaces with HTML5 and CSS",
+    note: "Requirements from system analysts into responsive interfaces",
   },
   {
     label: "Full Stack",
     years: "2021 — 2022",
-    note: "CodeIgniter 3, MySQL, and Laravel 9 applications",
+    note: "Client and business requirements into CodeIgniter 3 and Laravel 9 applications",
   },
   {
-    label: "Application Development",
+    label: "Requirements & Documentation",
     years: "2022 — 2024",
-    note: "Business applications, documentation, and support",
+    note: "BRDs, system specifications, test scenarios, SIT and UAT",
   },
   {
     label: "Enterprise Integration",
@@ -215,8 +227,8 @@ export const careerStages: CareerStage[] = [
     note: "Golang and Laravel services, RESTful APIs",
   },
   {
-    label: "System-Level Engineering",
+    label: "Business × System × Technology",
     years: "Present",
-    note: "Mobile, API, backend, data, and SAP as one system",
+    note: "Requirement and impact analysis, solution design, and delivery across the stack",
   },
 ];

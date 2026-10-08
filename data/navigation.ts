@@ -3,9 +3,10 @@ import { profile } from "@/data/profile";
 
 export const navigation: NavigationItem[] = [
   { id: "about", label: "About", href: "/#about" },
-  { id: "work", label: "Work", href: "/#work" },
+  { id: "approach", label: "Approach", href: "/#strengths" },
+  { id: "case-studies", label: "Case Studies", href: "/#case-studies" },
+  { id: "stack", label: "Stack", href: "/#stack" },
   { id: "experience", label: "Experience", href: "/#experience" },
-  { id: "engineering", label: "Engineering", href: "/#engineering" },
   { id: "education", label: "Education", href: "/#education" },
   { id: "contact", label: "Contact", href: "/#contact" },
 ];

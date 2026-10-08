@@ -20,7 +20,7 @@ export const SITE_URL = resolveSiteUrl();
 export const SITE_TITLE = `${profile.name} — ${profile.title}`;
 
 export const SITE_DESCRIPTION =
-  "Portfolio of Freddy Oktoniyer S, a Backend / Full Stack Software Engineer experienced in Golang, Laravel, REST APIs, mobile applications, enterprise integrations, SAP, and database-driven systems.";
+  "Freddy Oktoniyer S — Software Engineer with an Information Systems background, bridging business requirements, system design, and technical implementation. System Analyst · Technical Business Analyst · IT Consultant.";
 
 export const THEME_COLOR = "#09090b";
 

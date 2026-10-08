@@ -2,8 +2,9 @@ import type { CSSProperties } from "react";
 import { Container } from "@/components/layout/Container";
 import { HeroActions } from "@/components/hero/HeroActions";
 import { HeroSystemVisual } from "@/components/hero/HeroSystemVisual";
-import { heroLayers } from "@/data/engineering";
+import { heroStages, heroVisual } from "@/data/approach";
 import { profile } from "@/data/profile";
+import { cn } from "@/lib/utils";
 import type { LabeledValue } from "@/types/portfolio";
 
 /** CSS-driven entrance so the hero paints immediately, without waiting for JS. */
@@ -12,9 +13,9 @@ const delay = (ms: number): CSSProperties => ({ animationDelay: `${ms}ms` });
 
 const facts: LabeledValue[] = [
   { label: "Experience", value: profile.experience },
-  { label: "Based in", value: profile.location },
+  { label: "Background", value: profile.background },
   { label: "Currently", value: profile.current.company },
-  { label: "Focus", value: profile.focus },
+  { label: "Based in", value: profile.location },
 ];
 
 export function Hero() {
@@ -43,41 +44,62 @@ export function Hero() {
               </span>
             </p>
 
-            <h1 id="hero-title" className="mt-8">
-              <span
-                className={`${enter} block text-balance text-5xl font-semibold tracking-display text-fg sm:text-6xl xl:text-7xl`}
-                style={delay(80)}
-              >
-                {profile.name}
-              </span>{" "}
-              <span
-                className={`${enter} mt-4 block max-w-2xl text-balance text-3xl font-medium tracking-display text-fg-secondary sm:text-4xl xl:text-5xl`}
-                style={delay(160)}
-              >
-                {profile.title}
-              </span>
+            <p
+              className={`${enter} mt-8 font-mono text-sm uppercase tracking-[0.24em] text-fg`}
+              style={delay(60)}
+            >
+              {profile.name}
+            </p>
+
+            <h1 id="hero-title" className="mt-4">
+              {profile.headline.map((line, index) => (
+                <span
+                  key={line}
+                  className={cn(
+                    enter,
+                    "block text-balance text-4xl font-semibold tracking-display sm:text-5xl xl:text-6xl",
+                    index === 0 ? "text-fg" : "text-fg-secondary",
+                  )}
+                  style={delay(120 + index * 60)}
+                >
+                  {line}
+                  {index < profile.headline.length - 1 ? " " : null}
+                </span>
+              ))}
             </h1>
 
             <p
-              className={`${enter} mt-8 max-w-xl text-pretty text-lg leading-relaxed text-fg-secondary`}
+              className={`${enter} mt-6 text-pretty text-xl font-medium tracking-tight text-accent-strong sm:text-2xl`}
               style={delay(240)}
             >
-              {profile.headline}
+              {profile.title}
             </p>
 
-            <div className={enter} style={delay(320)}>
+            <div
+              className={`${enter} mt-8 max-w-xl space-y-4 text-pretty text-lg leading-relaxed`}
+              style={delay(300)}
+            >
+              <p className="text-fg">{profile.positioning}</p>
+              <p className="text-fg-secondary">{profile.summary}</p>
+            </div>
+
+            <div className={enter} style={delay(360)}>
               <HeroActions className="mt-10" />
             </div>
           </div>
 
-          <div className={`${enter} lg:col-span-5`} style={delay(360)}>
-            <HeroSystemVisual layers={heroLayers} />
+          <div className={`${enter} lg:col-span-5`} style={delay(400)}>
+            <HeroSystemVisual
+              stages={heroStages}
+              title={heroVisual.title}
+              caption={heroVisual.caption}
+            />
           </div>
         </div>
 
         <dl
           className={`${enter} mt-16 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line lg:mt-24 lg:grid-cols-4`}
-          style={delay(440)}
+          style={delay(460)}
         >
           {facts.map((fact) => (
             <div key={fact.label} className="bg-background px-5 py-5 sm:px-6">

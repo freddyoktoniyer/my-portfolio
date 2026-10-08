@@ -3,17 +3,19 @@ import type { Profile } from "@/types/portfolio";
 export const profile: Profile = {
   name: "Freddy Oktoniyer S",
   shortName: "Freddy",
-  title: "Backend / Full Stack Software Engineer",
-  headline:
-    "Building reliable software across backend services, mobile applications, APIs, and enterprise systems.",
+  title: "System Analyst · Technical Business Analyst · IT Consultant",
+  headline: ["From Business Problems", "to Technical Solutions."],
+  tagline: "I translate business problems into systems that work.",
   positioning:
-    "Building reliable software across backend services, REST APIs, mobile applications, enterprise integrations, and database-driven systems.",
+    "I bridge the gap between business requirements, system design, and technology implementation.",
+  summary:
+    "With a background in Information Systems and hands-on experience across mobile, web, backend, APIs, databases, system integration, and software architecture, I analyze business processes, translate requirements into system solutions, and work closely with stakeholders to deliver practical, maintainable technology.",
+  background: "Information Systems",
   location: "Tangerang, Indonesia",
   email: "freddy.oktoniyer@gmail.com",
   // Taken from the hyperlink embedded in the CV.
   linkedin: "https://www.linkedin.com/in/freddy-oktoniyer-s-9b3408182/",
   experience: "5+ years",
-  focus: "Backend · APIs · Integration",
   current: {
     role: "Fullstack Developer",
     company: "VIVERE GROUP",
@@ -29,31 +31,57 @@ export const profile: Profile = {
 };
 
 export const about = {
-  title: "Engineering across the system, not just the interface.",
+  title: "I don't just build systems. I understand why they need to exist.",
+  lead: "I am a Software Engineer with an Information Systems background and strong experience bridging business requirements with technical solutions.",
+  intro:
+    "My background started in software engineering, but my approach to solving problems has always gone beyond writing code.",
+  question: {
+    instead: "How do I code this?",
+    first: "What problem are we trying to solve?",
+  },
+  analysisPath: [
+    "Business process",
+    "Requirement",
+    "System behavior",
+    "Data",
+    "Integration",
+    "Technical solution",
+    "Implementation",
+  ],
   paragraphs: [
-    "Software engineer with 5+ years of professional experience developing and maintaining backend services, RESTful APIs, mobile applications, system integrations, and database-driven applications.",
-    "My work follows a business requirement through the stack: the API contract a mobile app depends on, the server-side logic and validation behind it, the relational data underneath, and the integration with enterprise systems such as SAP through OData.",
-    "I support applications across the software development lifecycle — requirements analysis, solution design, development, SIT and UAT, release, and production troubleshooting.",
+    "I work with Business Analysts, Product teams, business users, UI/UX teams, vendors, and engineering teams to understand requirements, clarify ambiguities, analyze impact, design solutions, and make sure the final implementation matches the intended business process.",
+    "My technical background lets me go one step further: I can take a business requirement and understand how it should actually be implemented within a real system.",
   ],
   collaborators: [
-    "Mobile & frontend developers",
-    "QA",
+    "Business Analysts",
     "Product",
     "Business users",
-    "Enterprise system teams",
+    "UI/UX",
+    "Vendors",
+    "QA",
+    "Engineering teams",
   ],
   lifecycle: [
     "Requirements",
+    "Analysis",
     "Design",
     "Development",
     "SIT / UAT",
     "Release",
     "Support",
   ],
+  openTo: [
+    "System Analyst",
+    "Technical Business Analyst",
+    "IT Consultant",
+    "Technical Consultant",
+    "Solution Architect",
+    "Product Owner",
+  ],
 } as const;
 
 export const contact = {
-  titleLines: ["Have a system", "worth building?"],
+  titleLines: ["Have a business problem", "worth solving?"],
   description:
-    "Let's talk about software, systems, integrations, or the next product.",
+    "Let's talk about business processes, requirements, system design, integrations, or the next solution.",
 } as const;

@@ -9,13 +9,19 @@ interface SystemLayersProps {
   layers: ArchitectureLayer[];
   /** Layer selected on first render. */
   initialLayerId: string;
+  /** What each layer's tags are, for assistive technology, e.g. "technologies". */
+  tagsLabel?: string;
 }
 
 /**
  * Layer stack with a description panel. On wide screens the panel sits beside
  * the stack; on small screens the description expands under the active layer.
  */
-export function SystemLayers({ layers, initialLayerId }: SystemLayersProps) {
+export function SystemLayers({
+  layers,
+  initialLayerId,
+  tagsLabel = "technologies",
+}: SystemLayersProps) {
   const [activeId, setActiveId] = useState(initialLayerId);
   const panelId = useId();
   const activeIndex = Math.max(
@@ -68,7 +74,7 @@ export function SystemLayers({ layers, initialLayerId }: SystemLayersProps) {
 
               {active ? (
                 <div className="mt-2 rounded-xl border border-line bg-background p-4 md:hidden">
-                  <LayerDescription layer={layer} />
+                  <LayerDescription layer={layer} tagsLabel={tagsLabel} />
                 </div>
               ) : null}
             </li>
@@ -86,7 +92,7 @@ export function SystemLayers({ layers, initialLayerId }: SystemLayersProps) {
             {formatIndex(activeIndex)} / {layers[activeIndex].label}
           </p>
           <div className="mt-4">
-            <LayerDescription layer={layers[activeIndex]} />
+            <LayerDescription layer={layers[activeIndex]} tagsLabel={tagsLabel} />
           </div>
         </div>
       </div>
@@ -94,14 +100,19 @@ export function SystemLayers({ layers, initialLayerId }: SystemLayersProps) {
   );
 }
 
-function LayerDescription({ layer }: { layer: ArchitectureLayer }) {
+interface LayerDescriptionProps {
+  layer: ArchitectureLayer;
+  tagsLabel: string;
+}
+
+function LayerDescription({ layer, tagsLabel }: LayerDescriptionProps) {
   return (
     <>
       <p className="leading-relaxed text-fg-secondary">{layer.description}</p>
       {layer.technologies ? (
         <BadgeList
           items={layer.technologies}
-          label={`${layer.label} technologies`}
+          label={`${layer.label} ${tagsLabel}`}
           className="mt-5"
         />
       ) : null}

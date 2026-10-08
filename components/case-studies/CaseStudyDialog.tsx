@@ -3,7 +3,7 @@
 import { ArrowRight, X } from "lucide-react";
 import { useId, useRef, type MouseEvent, type ReactNode } from "react";
 
-interface ProjectDialogProps {
+interface CaseStudyDialogProps {
   eyebrow: string;
   title: string;
   children: ReactNode;
@@ -14,7 +14,7 @@ interface ProjectDialogProps {
  * Escape-to-close, and focus restoration; page scroll is locked in CSS.
  * The trigger stretches over its card so the whole card is clickable.
  */
-export function ProjectDialog({ eyebrow, title, children }: ProjectDialogProps) {
+export function CaseStudyDialog({ eyebrow, title, children }: CaseStudyDialogProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const titleId = useId();
 
@@ -30,9 +30,9 @@ export function ProjectDialog({ eyebrow, title, children }: ProjectDialogProps) 
         type="button"
         aria-haspopup="dialog"
         onClick={() => dialogRef.current?.showModal()}
-        className="label-mono flex items-center gap-2 rounded-sm text-fg transition-colors duration-200 after:absolute after:inset-0 after:rounded-2xl group-hover:text-accent-strong"
+        className="label-mono flex shrink-0 items-center gap-2 rounded-sm text-fg transition-colors duration-200 after:absolute after:inset-0 after:rounded-2xl group-hover:text-accent-strong"
       >
-        View work
+        Read case study
         <span className="sr-only">: {title}</span>
         <ArrowRight
           aria-hidden="true"
